@@ -98,6 +98,17 @@ type_descriptions = {
 **당신과 닮은 인물**
 
 - 🕊 코피 아난 – 평화를 위해 대화의 다리를 놓은 UN 사무총장""",
+        "volunteer_info": {
+            "title": "### 🌟 당신에게 어울리는 봉사활동",
+            "activities": """
+**적합한 봉사활동 유형**
+- 국제 평화 유지 및 갈등 해결 프로그램
+- 다문화 이해 및 교류 활동
+- 지역사회 협력 및 네트워크 구축 프로젝트
+
+**추천 KOICA 프로그램**
+KOICA 해외봉사단: 개발도상국에서 공공행정, 교육, 보건 등 다양한 분야에서 활동하며 지역사회 협력을 촉진하는 프로그램에 참여해보세요."""
+        }
     },
     "HAEP": {
         "title": "🌞 당신은 **HAEP! – 희망 전파자형**",
@@ -109,6 +120,17 @@ type_descriptions = {
 **당신과 닮은 인물**
 
 - 🎭 로빈 윌리엄스 – 유쾌함 속에 깊은 따뜻함을 전한 배우""",
+        "volunteer_info": {
+            "title": "### 🌟 당신에게 어울리는 봉사활동",
+            "activities": """
+**적합한 봉사활동 유형**
+- 교육 및 멘토링 활동 (아동·청소년 대상)
+- 사회적 약자 지원 및 응원 캠페인
+- 문화 및 예술을 통한 지역사회 활성화 프로젝트
+
+**추천 KOICA 프로그램**
+KOICA 프로젝트 봉사단: 르완다 중등학교 ICT 역량 강화 프로젝트, 필리핀 영유아 공공 보육 및 교육 서비스 증진 프로젝트 등 교육 및 지역사회 활성화 활동에 참여해보세요."""
+        }
     },
     "IMVP": {
         "title": "⚡ 당신은 **IMVP! – 임팩트 메이커형**",
@@ -120,6 +142,17 @@ type_descriptions = {
 **당신과 닮은 인물**
 
 - 🌍 넬슨 만델라 – 사회를 바꾼 의지의 리더""",
+        "volunteer_info": {
+            "title": "### 🌟 당신에게 어울리는 봉사활동",
+            "activities": """
+**적합한 봉사활동 유형**
+- 환경 보호 및 지속가능한 개발 프로젝트
+- 창업 및 경제적 자립 지원 프로그램
+- 기술·혁신을 활용한 사회문제 해결 활동
+
+**추천 KOICA 프로그램**
+KOICA-UNV 봉사단: UN 산하기관에서 활동하며 지속가능한 개발 목표(SDGs) 달성을 위한 프로젝트에 참여해보세요."""
+        }
     },
     "CARE": {
         "title": "💗 당신은 **CARE! – 따뜻한 돌봄자형**",
@@ -131,6 +164,17 @@ type_descriptions = {
 **당신과 닮은 인물**
 
 - 🕊 테레사 수녀 – 삶으로 사랑을 실천한 인류의 어머니""",
+        "volunteer_info": {
+            "title": "### 🌟 당신에게 어울리는 봉사활동",
+            "activities": """
+**적합한 봉사활동 유형**
+- 의료 및 보건 지원 봉사
+- 사회적 약자 보호 및 돌봄 서비스
+- 재난 및 긴급 구호 활동
+
+**추천 KOICA 프로그램**
+캄보디아 국립소아병원 건강증진 프로젝트: 입원 환아의 건강 증진을 위한 의료 지원 활동에 참여해보세요."""
+        }
     }
 }
 
@@ -182,6 +226,16 @@ else:
     st.markdown(type_descriptions[result_type]["title"])
     st.markdown(type_descriptions[result_type]["subtitle"])
     st.markdown(type_descriptions[result_type]["description"])
+    
+    # 구분선 추가
+    st.markdown("---")
+    
+    # 봉사활동 추천
+    st.markdown(type_descriptions[result_type]["volunteer_info"]["title"])
+    st.markdown(type_descriptions[result_type]["volunteer_info"]["activities"])
+    
+    # 구분선 추가
+    st.markdown("---")
     
     # 응답 분포 표시
     st.markdown("### 📊 응답 분포")
