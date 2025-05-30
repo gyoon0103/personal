@@ -67,17 +67,17 @@ questions = [
             ("C. 문제를 해결할 수 있는 기회가 보일 때", "IMVP"),
             ("D. 누군가 조용히 힘들어하고 있을 때", "CARE"),
         ]
-    },
+    }
 ]
 
 # ——————————————————————————————
 # 이미지 매핑 (결과 표시용)
 # ——————————————————————————————
 image_urls = {
-    "BOND": "https://github.com/gyoon0103/personal/blob/main/BOND.png",
-    "HAEP": "https://github.com/gyoon0103/personal/blob/main/HAEP.png",
-    "IMVP": "https://github.com/gyoon0103/personal/blob/main/IMVP.png",
-    "CARE": "https://github.com/gyoon0103/personal/blob/main/CARE.png",
+    "BOND": "https://raw.githubusercontent.com/gyoon0103/personal/main/BOND.png",
+    "HAEP": "https://raw.githubusercontent.com/gyoon0103/personal/main/HAEP.png",
+    "IMVP": "https://raw.githubusercontent.com/gyoon0103/personal/main/IMVP.png",
+    "CARE": "https://raw.githubusercontent.com/gyoon0103/personal/main/CARE.png",
 }
 
 # 유형별 설명
