@@ -170,7 +170,7 @@ else:
     result_type = counts.most_common(1)[0][0]
 
     st.markdown("---")
-    st.success("🎉 성격유형 진단 결과")
+    st.success("🎉 지구시민 유형 진단 결과")
     
     # 이미지 로딩 시도
     try:
