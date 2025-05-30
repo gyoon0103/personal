@@ -128,7 +128,7 @@ else:
     
     # 이미지 로딩 시도
     try:
-        st.image(image_urls[result_type], caption=f"{result_type} 유형", use_column_width=True)
+        st.image(image_urls[result_type], caption=f"{result_type} 유형", use_container_width=True)
     except Exception as e:
         st.warning("이미지를 불러올 수 없습니다.")
     
