@@ -82,43 +82,6 @@ image_urls = {
 
 # 유형별 설명
 type_descriptions = {
-    "BOND": "당신은 사람들 사이의 균형을 맞추고 조화를 이루는 데 탁월한 재능이 있습니다.",
-    "HAEP": "당신은 주변을 밝게 만들고 사람들에게 긍정적인 에너지를 전달하는 능력이 있습니다.",
-    "IMVP": "당신은 실행력이 뛰어나고 문제 해결에 있어 효율적인 접근 방식을 가지고 있습니다.",
-    "CARE": "당신은 타인의 감정을 섬세하게 이해하고 진심 어린 위로를 전할 수 있는 따뜻한 마음을 가졌습니다."
-}
-
-# ——————————————————————————————
-# 대화 내역 표시
-# ——————————————————————————————
-for q, a in st.session_state.history:
-    st.markdown(f"💬 **Q:** {q}")
-    st.markdown(f"👤 **A:** {a}")
-
-# ——————————————————————————————
-# 질문 흐름
-# ——————————————————————————————
-current = len(st.session_state.history)
-
-if current < len(questions):
-    q = questions[current]
-    st.markdown(f"💬 **{q['text']}**")
-    # 사용자에게는 A/B/C/D+질문 텍스트만 보이도록
-    labels = [opt[0] for opt in q["options"]]
-    choice = st.radio("선택하세요:", labels, key=f"q{current}")
-    
-    if st.button("다음", key=f"submit{current}"):
-        # 선택된 라벨에 대응하는 유형 코드 찾기
-        mapping = {opt[0]: opt[1] for opt in q["options"]}
-        selected_type = mapping[choice]
-        # 기록
-        st.session_state.history.append((q["text"], choice))
-        st.session_state.types.append(selected_type)
-        st.rerun()
-
-else:
-# 유형별 설명
-type_descriptions = {
     "BOND": {
         "title": "🤝 당신은 **BOND! – 균형 잡는 조정자형**",
         "subtitle": "Balanced Organizer for Network & Development",
@@ -226,4 +189,3 @@ else:
         st.session_state.history = []
         st.session_state.types = []
         st.rerun()
-
