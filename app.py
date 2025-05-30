@@ -117,6 +117,83 @@ if current < len(questions):
         st.rerun()
 
 else:
+# 유형별 설명
+type_descriptions = {
+    "BOND": {
+        "title": "🤝 당신은 **BOND! – 균형 잡는 조정자형**",
+        "subtitle": "Balanced Organizer for Network & Development",
+        "description": """
+사람들 사이의 균형을 맞추고 조화를 이루는 데 탁월한 재능이 있습니다.
+당신은 서로 다른 의견을 가진 사람들을 이해하고 연결하는 다리 역할을 합니다.
+
+**당신과 닮은 인물**
+
+- 🕊 코피 아난 – 평화를 위해 대화의 다리를 놓은 UN 사무총장""",
+    },
+    "HAEP": {
+        "title": "🌞 당신은 **HAEP! – 희망 전파자형**",
+        "subtitle": "Hopeful Activist for Earth & People",
+        "description": """
+밝은 에너지로 주변을 환하게 비추는 희망의 전달자입니다.
+당신이 있는 곳에는 언제나 웃음과 따뜻한 분위기가 가득합니다.
+
+**당신과 닮은 인물**
+
+- 🎭 로빈 윌리엄스 – 유쾌함 속에 깊은 따뜻함을 전한 배우""",
+    },
+    "IMVP": {
+        "title": "⚡ 당신은 **IMVP! – 임팩트 메이커형**",
+        "subtitle": "Impactful Volunteer for People",
+        "description": """
+문제를 보면 가만히 있지 못하고, 바로 실행에 옮기는 실천가입니다.
+계획과 책임감, 리더십으로 세상에 변화를 만들어내는 사람입니다.
+
+**당신과 닮은 인물**
+
+- 🌍 넬슨 만델라 – 사회를 바꾼 의지의 리더""",
+    },
+    "CARE": {
+        "title": "💗 당신은 **CARE! – 따뜻한 돌봄자형**",
+        "subtitle": "Compassionate Advocate for Relief & Empathy",
+        "description": """
+타인의 마음을 누구보다 잘 이해하고, 조용히 곁을 지켜주는 사람입니다.
+당신의 배려는 누군가에겐 큰 위로와 용기가 됩니다.
+
+**당신과 닮은 인물**
+
+- 🕊 테레사 수녀 – 삶으로 사랑을 실천한 인류의 어머니""",
+    }
+}
+
+# ——————————————————————————————
+# 대화 내역 표시
+# ——————————————————————————————
+for q, a in st.session_state.history:
+    st.markdown(f"💬 **Q:** {q}")
+    st.markdown(f"👤 **A:** {a}")
+
+# ——————————————————————————————
+# 질문 흐름
+# ——————————————————————————————
+current = len(st.session_state.history)
+
+if current < len(questions):
+    q = questions[current]
+    st.markdown(f"💬 **{q['text']}**")
+    # 사용자에게는 A/B/C/D+질문 텍스트만 보이도록
+    labels = [opt[0] for opt in q["options"]]
+    choice = st.radio("선택하세요:", labels, key=f"q{current}")
+    
+    if st.button("다음", key=f"submit{current}"):
+        # 선택된 라벨에 대응하는 유형 코드 찾기
+        mapping = {opt[0]: opt[1] for opt in q["options"]}
+        selected_type = mapping[choice]
+        # 기록
+        st.session_state.history.append((q["text"], choice))
+        st.session_state.types.append(selected_type)
+        st.rerun()
+
+else:
     # ——————————————————————————————
     # 결과 계산 & 표시
     # ——————————————————————————————
@@ -133,18 +210,20 @@ else:
         st.warning("이미지를 불러올 수 없습니다.")
     
     # 결과 설명
-    st.markdown(f"### 당신은 **{result_type}** 유형입니다!")
-    st.write(type_descriptions[result_type])
+    st.markdown(type_descriptions[result_type]["title"])
+    st.markdown(type_descriptions[result_type]["subtitle"])
+    st.markdown(type_descriptions[result_type]["description"])
     
     # 응답 분포 표시
-    st.markdown("### 응답 분포")
+    st.markdown("### 📊 응답 분포")
     total = len(st.session_state.types)
     for type_code, count in counts.most_common():
         percentage = (count / total) * 100
         st.write(f"- {type_code}: {percentage:.1f}% ({count}회)")
     
     # 다시하기 버튼
-    if st.button("다시 진단하기"):
+    if st.button("🔄 다시 진단하기"):
         st.session_state.history = []
         st.session_state.types = []
         st.rerun()
+
