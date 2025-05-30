@@ -74,10 +74,10 @@ questions = [
 # 이미지 매핑 (결과 표시용)
 # ——————————————————————————————
 image_urls = {
-    "BOND": "https://raw.githubusercontent.com/gyoon0103/personal/main/BOND.png",
-    "HAEP": "https://raw.githubusercontent.com/gyoon0103/personal/main/HAEP.png",
-    "IMVP": "https://raw.githubusercontent.com/gyoon0103/personal/main/IMVP.png",
-    "CARE": "https://raw.githubusercontent.com/gyoon0103/personal/main/CARE.png",
+    "BOND": "https://raw.githubusercontent.com/gyoon0103/personal/main/bond_v.png",
+    "HAEP": "https://raw.githubusercontent.com/gyoon0103/personal/main/haep_v.png",
+    "IMVP": "https://raw.githubusercontent.com/gyoon0103/personal/main/imvp_v.png",
+    "CARE": "https://raw.githubusercontent.com/gyoon0103/personal/main/care_v.png",
 }
 
 # 유형별 설명
